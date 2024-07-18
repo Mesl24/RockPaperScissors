@@ -1,0 +1,57 @@
+body{
+    background-color: black;
+    padding: 40px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.main-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(219, 219, 14);
+    width: 100%;
+    border-radius: 2%;
+}
+.container-inner{
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    margin-bottom: 5px;
+}
+.title{
+    font-size: 60px;
+    color: white;
+}
+.rock-btn,
+.paper-btn,
+.scissors-btn{
+    background-color: transparent;
+    padding: 14px;
+    border-radius: 50%;
+    border: 2px solid black;
+    color: white;
+    font-size: 25px;
+    cursor: pointer;
+}
+.reset-btn{
+    width: 100%;
+    background-color: rgb(219, 219, 14);
+    border: 2px solid white;
+    padding: 14px;
+    margin-top: 100px;
+    border-radius: 50%;
+    color: white;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+
+
+.statistic,
+.result,
+.res{
+    color: white;
+    text-align: center;
+    font-size: 45px;
+    font-weight: bold;
+}
