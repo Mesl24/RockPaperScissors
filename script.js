@@ -1,70 +1,112 @@
-function computerChoice(){
-    const choice = Math.random();
+const score = {
+    wins  : 0,
+    loses : 0,
+    tie   : 0
+}
 
-    let computerMove = '';
-    if( choice >= 0 && choice <= 0.3){
-        computerMove = 'ROCK';
+
+function playGame(playerSelection){
+
+
+    function getComputerChoice(){
+        const choice = Math.random();
+        let computerChoice = '';
+    
+        if(choice >= 0 && choice <= 0.3){
+            computerChoice = 'Rock';
+        }
+        else if (choice > 0.3 && choice <= 0.6){
+            computerChoice = 'Scissors';
+        }
+        else{
+            computerChoice = 'Paper';
+        }
+    
+        return computerChoice;
     }
-    else if (choice >= 0.3 && choice <= 0.6){
-        computerMove = 'PAPER';
+
+    const computerChoice = getComputerChoice()
+    if(playerSelection === 'Rock'){
+        if(computerChoice === 'Rock'){
+            document.querySelector('.statistic')
+                    .innerHTML = (`You Choosed ${playerSelection} Computer Choosed ${computerChoice}`);
+            document.querySelector('.result')
+                    .innerHTML = (`it's a TIE.`);
+        }
+        else if(computerChoice === 'Paper'){
+            document.querySelector('.statistic')
+                    .innerHTML = (`You Choosed ${playerSelection} Computer Choosed ${computerChoice}`);
+            document.querySelector('.result')
+                    .innerHTML = (`You LOSE!`);
+        }
+        else{
+            document.querySelector('.statistic')
+                    .innerHTML = (`You Choosed ${playerSelection} Computer Choosed ${computerChoice}`);
+            document.querySelector('.result')
+                    .innerHTML = (`You WIN!`);
+        }
+    }
+
+    if(playerSelection === 'Paper'){
+        if(computerChoice === 'Paper'){
+            document.querySelector('.statistic')
+                    .innerHTML = (`You Choosed ${playerSelection} Computer Choosed ${computerChoice}`);
+            document.querySelector('.result')
+                    .innerHTML = (`it's a TIE.`);
+        }
+        else if(computerChoice === 'Scissors'){
+            document.querySelector('.statistic')
+                    .innerHTML = (`You Choosed ${playerSelection} Computer Choosed ${computerChoice}`);
+            document.querySelector('.result')
+                    .innerHTML = (`You LOSE!`);
+        }
+        else{
+            document.querySelector('.statistic')
+                    .innerHTML = (`You Choosed ${playerSelection} Computer Choosed ${computerChoice}`);
+            document.querySelector('.result')
+                    .innerHTML = (`You WIN!`);
+        }
+    }
+
+    if(playerSelection === 'Scissors'){
+        if(computerChoice === 'Scissors'){
+            document.querySelector('.statistic')
+                    .innerHTML = (`You Choosed ${playerSelection} Computer Choosed ${computerChoice}`);
+            document.querySelector('.result')
+                    .innerHTML = (`it's a TIE.`);
+        }
+        else if(computerChoice === 'Rock'){
+            document.querySelector('.statistic')
+                    .innerHTML = (`You Choosed ${playerSelection} Computer Choosed ${computerChoice}`);
+            document.querySelector('.result')
+                    .innerHTML = (`You LOSE!`);
+        }
+        else{
+            document.querySelector('.statistic')
+                    .innerHTML = (`You Choosed ${playerSelection} Computer Choosed ${computerChoice}`);
+            document.querySelector('.result')
+                    .innerHTML = (`You WIN!`);
+        }
+    }
+
+    const scoreElement = document.querySelector('.result').innerText;
+
+
+    if (scoreElement === 'You WIN!'){
+        score.wins += 1;
+    }
+    else if(scoreElement === 'You LOSE!'){  
+        score.loses += 1;
     }
     else{
-        computerMove = 'SCISSORS';
+        score.tie +=1;
     }
-    return computerMove;
+    
+    document.querySelector('.res')
+    .innerHTML = JSON.stringify(`Wins: ${score.wins},   Loses: ${score.loses},   Draw: ${score.tie}`);
+
+
 }
-
-
-function rockChoice(){
-        const rock = (document.querySelector('.rock-btn').innerHTML);
-        const result = computerChoice(); 
-        document.querySelector('.statistic').innerHTML = (`You Choosed ${rock} Computer Choosed ${result}`);
-        if (result === 'ROCK'){
-            document.querySelector('.result').innerHTML = (`It's A Tie.`);
-        }
-        else if (result === 'SCISSORS'){
-            document.querySelector('.result').innerHTML = ('You Win!');
-        }
-        else{
-            document.querySelector('.result').innerHTML = ('You Lose!');
-        }
-}
-
-function paperChoice(){
-    const paper = (document.querySelector('.paper-btn').innerHTML);
-    const result = computerChoice(); 
-    document.querySelector('.statistic').innerHTML = (`You Choosed ${paper} Computer Choosed ${result}`);
-        if (result === 'PAPER'){
-            document.querySelector('.result').innerHTML = (`It's A Tie.`);
-        }
-        else if (result === 'ROCK'){
-            document.querySelector('.result').innerHTML = ('You Win!');
-        }
-        else{
-            document.querySelector('.result').innerHTML = ('You Lose!');
-        }
-        return result;
-}   
-
-function scissorsChoice(){
-    const scissors = (document.querySelector('.scissors-btn').innerHTML);
-    const result = computerChoice(); 
-    document.querySelector('.statistic').innerHTML = (`You Choosed ${scissors} Computer Choosed ${result}`);
-        if (result === 'SCISSORS'){
-            document.querySelector('.result').innerHTML = (`It's A Tie.`);
-        }
-        else if (result === 'PAPER'){
-            document.querySelector('.result').innerHTML = ('You Win!');
-        }
-        else{
-            document.querySelector('.result').innerHTML = ('You Lose!');
-        }
-        return result;
-}
-
-
-
-
 
 
 
