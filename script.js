@@ -1,8 +1,9 @@
-const score = {
+let score = JSON.parse(localStorage.getItem('score')) || 
+{
     wins  : 0,
     loses : 0,
     tie   : 0
-}
+};
 
 
 function playGame(playerSelection){
@@ -102,12 +103,80 @@ function playGame(playerSelection){
         score.tie +=1;
     }
     
-    document.querySelector('.res')
-    .innerHTML = JSON.stringify(`Wins: ${score.wins},   Loses: ${score.loses},   Draw: ${score.tie}`);
-
+    localStorage.setItem('score', JSON.stringify(score));
+    
+    document.querySelector('.res-wins')
+    .innerHTML = (`Wins: ${score.wins}`)
+    document.querySelector('.res-lose')
+    .innerHTML = (`Losses: ${score.loses}`)
+    document.querySelector('.res-draw')
+    .innerHTML = (`Draw: ${score.tie}`);
+    
 
 }
 
+function resetScore(){
+
+    JSON.stringify(localStorage.removeItem('score'));   
+    score = {
+        wins: 0,
+        loses: 0,
+        tie: 0
+    };
+    document.querySelector('.res-wins')
+    .innerHTML = (`Wins: ${score.wins}`)
+    document.querySelector('.res-lose')
+    .innerHTML = (`Losses: ${score.loses}`)
+    document.querySelector('.res-draw')
+    .innerHTML = (`Draw: ${score.tie}`);
+
+}
+
+JSON.parse(localStorage.getItem('score'));
+
+function pickResetValue(choice){
+    if(choice === 'wins'){
+        score = {
+            wins: 0,
+            loses: score.loses,
+            tie: score.tie
+        }
+        document.querySelector('.res-wins')
+        .innerHTML = (`Wins: ${score.wins}`)
+        document.querySelector('.res-lose')
+        .innerHTML = (`Losses: ${score.loses}`)
+        document.querySelector('.res-draw')
+        .innerHTML = (`Draw: ${score.tie}`);
+        }
+    else if(choice === 'loses'){
+        score = {
+            wins: score.wins,
+            loses: 0,
+            tie: score.tie
+        }
+        document.querySelector('.res-wins')
+        .innerHTML = (`Wins: ${score.wins}`)
+        document.querySelector('.res-lose')
+        .innerHTML = (`Losses: ${score.loses}`)
+        document.querySelector('.res-draw')
+        .innerHTML = (`Draw: ${score.tie}`);
+    }
+    else if(choice === 'tie'){
+        score = {
+            wins: score.wins,
+            loses: score.loses,
+            tie: 0
+        }
+        document.querySelector('.res-wins')
+        .innerHTML = (`Wins: ${score.wins}`)
+        document.querySelector('.res-lose')
+        .innerHTML = (`Losses: ${score.loses}`)
+        document.querySelector('.res-draw')
+        .innerHTML = (`Draw: ${score.tie}`);
+    }
+    localStorage.setItem('score', JSON.stringify(score));
+    
+}
 
 
 
