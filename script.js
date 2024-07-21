@@ -123,12 +123,19 @@ function resetScore(){
         loses: 0,
         tie: 0
     };
+
+
     document.querySelector('.res-wins')
     .innerHTML = (`Wins: ${score.wins}`)
     document.querySelector('.res-lose')
     .innerHTML = (`Losses: ${score.loses}`)
     document.querySelector('.res-draw')
     .innerHTML = (`Draw: ${score.tie}`);
+
+    document.querySelector('.statistic')
+    .innerHTML = (``);
+    document.querySelector('.result')
+            .innerHTML = (``);
 
 }
 
