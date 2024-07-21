@@ -3,6 +3,8 @@ body{
     background-image: linear-gradient(to bottom, #1A3636 0%, #1A3636 40%,
     #40534C 70%, #677D6A 85%, #D6BD98 100%);
     color: rgb(117, 117, 117);
+    background-repeat: no-repeat;
+    height: 100%;
 }
 
 .main-container{
@@ -123,6 +125,47 @@ body{
 .reset-btn:hover{
     border: 2px solid black;
     transition: 0.4s;
+}
+
+@media screen and (max-width: 430px){
+    .title{
+        font-size: 20px;
+    }
+    .game-img{
+        height: 30px;
+        padding: 2px;
+    }
+    .game-img1{
+        height: 30px;
+        padding: 4px;
+    }
+    .statistic{
+        font-size: 14px;
+    }
+    .result{
+        font-size: 16px;
+        padding: 5px;
+    }
+    .res-wins,
+    .res-lose,
+    .res-draw{
+        font-size: 11px;
+        margin-bottom: 2px;
+    }
+    .reset-btn-choice{
+        font-size: 10px;
+        padding: 2px 0px;
+        margin-left: 18px;
+        text-wrap: nowrap;
+    }
+    .reset-choice{
+        display: grid;
+        grid-template-columns: 90px 90px 90px;
+    }
+    .reset-btn{
+        margin-top: 120px;
+        text-wrap: nowrap;
+    }
 }
 
 @media screen and (max-width: 720px){
