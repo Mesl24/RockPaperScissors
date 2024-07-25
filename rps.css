@@ -191,6 +191,7 @@ body{
     .game-img{
         height: 50px;
         padding: 5px;
+        margin-left: 50px;
     }
     .game-img1{
         height: 42px;
