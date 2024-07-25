@@ -187,11 +187,12 @@ body{
 @media screen and (max-width: 720px){
     .title{
         font-size: 30px;
+        display: block;
+        margin: auto;
     }
     .game-img{
         height: 50px;
         padding: 5px;
-        margin-left: 50px;
     }
     .game-img1{
         height: 42px;
