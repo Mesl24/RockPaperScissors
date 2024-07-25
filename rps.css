@@ -139,11 +139,6 @@ body{
 }
 
 @media screen and (max-width: 430px){
-    body{
-        overflow-x: hidden;
-        display: block;
-        margin: auto;
-    }
     .title{
         font-size: 20px;
     }
