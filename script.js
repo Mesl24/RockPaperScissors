@@ -5,26 +5,52 @@ let score = JSON.parse(localStorage.getItem('score')) ||
     tie   : 0
 };
 
+let isAutoPlay = false;
+let intervalId;
+const button = document.querySelector('.autoPlay-btn');
+button.addEventListener('click', () => {
+    if(!isAutoPlay){
+        const computerChoice = getComputerChoice()
+        intervalId = setInterval(() => {
+            playGame(computerChoice)
+        }, 1000)
+        isAutoPlay = true;
+        document.querySelector('.autoPlay-btn').innerHTML = "Playing...";
+    }else{
+        isAutoPlay = false;
+        clearInterval(intervalId);
+        document.querySelector('.autoPlay-btn').innerHTML = "Auto Play";
+    }
+})
+
+const body = document.body;
+body.addEventListener('keydown', (event) => {
+    if(event.key === 'r'){
+        playGame('Rock');
+    }
+    else if(event.key === 'p'){
+        playGame('Paper');
+    }
+    else if(event.key === 's'){
+        playGame('Scissors');
+    }
+    else if(event.key === 'a'){
+        if(!isAutoPlay){
+            const computerChoice = getComputerChoice()
+            intervalId = setInterval(() => {
+                playGame(computerChoice)
+            }, 1000)
+            isAutoPlay = true;
+            document.querySelector('.autoPlay-btn').innerHTML = "Playing...";
+        }else{
+            isAutoPlay = false;
+            clearInterval(intervalId);
+            document.querySelector('.autoPlay-btn').innerHTML = "Auto Play";
+        }
+    }
+})
 
 function playGame(playerSelection){
-
-
-    function getComputerChoice(){
-        const choice = Math.random();
-        let computerChoice = '';
-    
-        if(choice >= 0 && choice <= 0.3){
-            computerChoice = 'Rock';
-        }
-        else if (choice > 0.3 && choice <= 0.6){
-            computerChoice = 'Scissors';
-        }
-        else{
-            computerChoice = 'Paper';
-        }
-    
-        return computerChoice;
-    }
 
     const computerChoice = getComputerChoice()
     if(playerSelection === 'Rock'){
@@ -113,6 +139,23 @@ function playGame(playerSelection){
     .innerHTML = (`Draw: ${score.tie}`);
     
 
+}
+
+function getComputerChoice(){
+    const choice = Math.random();
+    let computerChoice = '';
+
+    if(choice >= 0 && choice <= 0.3){
+        computerChoice = 'Rock';
+    }
+    else if (choice > 0.3 && choice <= 0.6){
+        computerChoice = 'Scissors';
+    }
+    else{
+        computerChoice = 'Paper';
+    }
+
+    return computerChoice;
 }
 
 function resetScore(){
