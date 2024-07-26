@@ -1,3 +1,4 @@
+//Defining Score and giving it a default value
 let score = JSON.parse(localStorage.getItem('score')) || 
 {
     wins  : 0,
@@ -5,6 +6,7 @@ let score = JSON.parse(localStorage.getItem('score')) ||
     tie   : 0
 };
 
+// EventLisner part for the entire webpage 
 let isAutoPlay = false;
 let intervalId;
 const button = document.querySelector('.autoPlay-btn');
@@ -22,6 +24,42 @@ button.addEventListener('click', () => {
         document.querySelector('.autoPlay-btn').innerHTML = "Auto Play";
     }
 })
+
+const playRock = document.querySelector('.game-btn1');
+playRock.addEventListener('click', () =>{
+    playGame('Rock');
+})
+
+const playPaper = document.querySelector('.game-btn2');
+playPaper.addEventListener('click', () =>{
+    playGame('Paper');
+})
+
+const playScissors = document.querySelector('.game-btn3');
+playScissors.addEventListener('click', () =>{
+    playGame('Scissors');
+})
+
+const resetWins = document.querySelector('.reset-btn-choice1');
+resetWins.addEventListener('click', () => {
+    pickResetValue('wins');
+})
+
+const resetLoses = document.querySelector('.reset-btn-choice2');
+resetLoses.addEventListener('click', () => {
+    pickResetValue('loses');
+})
+
+const resetTie = document.querySelector('.reset-btn-choice3');
+resetTie.addEventListener('click', () => {
+    pickResetValue('ties');
+})
+
+const resetBtn = document.querySelector('.reset-btn');
+    resetBtn.addEventListener('click', () => {
+        resetScore();
+    })
+
 
 const body = document.body;
 body.addEventListener('keydown', (event) => {
@@ -50,6 +88,7 @@ body.addEventListener('keydown', (event) => {
     }
 })
 
+// The main function to play the game
 function playGame(playerSelection){
 
     const computerChoice = getComputerChoice()
@@ -141,6 +180,7 @@ function playGame(playerSelection){
 
 }
 
+// Getting the computer Choice and returning it
 function getComputerChoice(){
     const choice = Math.random();
     let computerChoice = '';
@@ -158,6 +198,7 @@ function getComputerChoice(){
     return computerChoice;
 }
 
+// Reseting the entire score with a single click
 function resetScore(){
 
     JSON.stringify(localStorage.removeItem('score'));   
@@ -184,6 +225,7 @@ function resetScore(){
 
 JSON.parse(localStorage.getItem('score'));
 
+// Choosing which score to reset depending on the user preference
 function pickResetValue(choice){
     if(choice === 'wins'){
         score = {

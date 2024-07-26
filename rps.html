@@ -10,9 +10,9 @@
     <div class="main-container">
         <h1 class="title">Rock Paper Scissors</h1>
         <div class="container-inner">
-            <button class="game-btn" onclick="playGame('Rock')"><img class="game-img1" src="./images/fist.png"></button>
-            <button class="game-btn" onclick="playGame('Paper')"><img class="game-img1" src="./images/hand-paper.png"></button>
-            <button class="game-btn" onclick="playGame('Scissors')"><img class="game-img" src="./images/scissors.png"></button>
+            <button class="game-btn1"><img class="game-img1" src="./images/fist.png"></button>
+            <button class="game-btn2"><img class="game-img1" src="./images/hand-paper.png"></button>
+            <button class="game-btn3"><img class="game-img" src="./images/scissors.png"></button>
         </div>
         <div class="container-para">
             <p class="statistic"></p>
@@ -24,12 +24,14 @@
         <p class="res-wins"></p>
         <p class="res-lose"></p>
         <p class="res-draw"></p>
-        <button class="reset-btn-choice" onclick="pickResetValue('wins')">Reset Wins</button>
-        <button class="reset-btn-choice" onclick="pickResetValue('loses')">Reset Loses</button>
-        <button class="reset-btn-choice" onclick="pickResetValue('tie')">Reset Draw</button>
+        <button class="reset-btn-choice1">Reset Wins</button>
+        <button class="reset-btn-choice2">Reset Loses</button>
+        <button class="reset-btn-choice3">Reset Draw</button>
     </div>
-    <button class="autoPlay-btn">Auto Play</button>
-    <button class="reset-btn" onclick="resetScore()">RESET SCORE</button>
+    <div class="footer-btn">
+        <button class="autoPlay-btn">Auto Play</button>
+        <button class="reset-btn">RESET SCORE</button>
+    </div>
     <script src="script.js"></script>
 </body>
 </html>
