@@ -154,6 +154,7 @@ body{
         font-size: 30px;
     }
 
+
     .main-container{
         display: flex;
         flex-direction: column;
@@ -162,6 +163,15 @@ body{
         width: 70%;
         margin: auto;
     }   
+    .container-para{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 70%;
+        border-top: 1px solid rgb(124, 124, 124);
+        border-bottom: 1px solid rgb(124, 124, 124);
+        margin: 50px auto;
+    }
     .game-img{
         height: 50px;
         padding: 5px;
@@ -238,7 +248,7 @@ body{
     }
     .reset-btn-choice1,
     .reset-btn-choice2,
-    .rset-btn-choice3{
+    .reset-btn-choice3{
         font-size: 10px;
         padding: 2px 0px;
         margin-left: 18px;
@@ -250,6 +260,24 @@ body{
         justify-content: center;
         align-items: center;
         width: 70%;
+        margin: auto;
+    }
+    .main-container{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 70%;
+        margin: auto;
+    }   
+    .container-para{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 70%;
+        border-top: 1px solid rgb(124, 124, 124);
+        border-bottom: 1px solid rgb(124, 124, 124);
+        margin: 50px auto;
     }
     .reset-btn,
     .autoPlay-btn{

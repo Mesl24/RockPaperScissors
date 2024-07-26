@@ -52,7 +52,7 @@ resetLoses.addEventListener('click', () => {
 
 const resetTie = document.querySelector('.reset-btn-choice3');
 resetTie.addEventListener('click', () => {
-    pickResetValue('ties');
+    pickResetValue('tie');
 })
 
 const resetBtn = document.querySelector('.reset-btn');
